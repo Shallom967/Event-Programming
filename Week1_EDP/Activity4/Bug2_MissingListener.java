@@ -1,0 +1,43 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Bug2_MissingListener extends JFrame {
+
+    private JLabel countLabel;
+    private JButton clickButton;
+
+    private int count = 0;
+
+    public Bug2_MissingListener() {
+
+        setTitle("Bug 2 - Missing Listener");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        countLabel = new JLabel("Count: 0");
+
+        clickButton = new JButton("Click Me");
+
+        // EVENT LISTENER
+        clickButton.addActionListener(e -> {
+
+            count++;
+
+            countLabel.setText("Count: " + count);
+        });
+
+        add(countLabel);
+        add(clickButton);
+
+        setSize(300, 150);
+        setLocationRelativeTo(null);
+    }
+
+    public static void main(String[] args) {
+
+        // Start the Swing application on the EDT
+        SwingUtilities.invokeLater(() -> {
+            new Bug2_MissingListener().setVisible(true);
+        });
+    }
+}
