@@ -1,0 +1,44 @@
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class Person {
+
+    // JavaFX Properties
+    private final StringProperty name =
+            new SimpleStringProperty("");
+
+    private final IntegerProperty age =
+            new SimpleIntegerProperty(0);
+
+    // Standard Getter
+    public String getName() {
+        return name.get();
+    }
+
+    // Standard Setter
+    public void setName(String value) {
+        name.set(value);
+    }
+
+    // Standard Getter
+    public int getAge() {
+        return age.get();
+    }
+
+    // Standard Setter
+    public void setAge(int value) {
+        age.set(value);
+    }
+
+    // Property Getter
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    // Property Getter
+    public IntegerProperty ageProperty() {
+        return age;
+    }
+}
